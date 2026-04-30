@@ -1,0 +1,260 @@
+/* ── GOOGLE FONTS are loaded via index.html ── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS CUSTOM PROPERTIES ── */
+:root {
+  --teal:          #00C9A7;
+  --teal-dim:      #00a888;
+  --teal-glow:     rgba(0, 201, 167, 0.15);
+  --teal-faint:    rgba(0, 201, 167, 0.06);
+  --bg:            #060d0c;
+  --bg2:           #0b1614;
+  --bg3:           #101e1b;
+  --surface:       rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --border:        rgba(0, 201, 167, 0.12);
+  --border-light:  rgba(255, 255, 255, 0.06);
+  --text:          #e8f4f1;
+  --text-muted:    rgba(232, 244, 241, 0.5);
+  --text-dim:      rgba(232, 244, 241, 0.25);
+  --font-head:     'Syne', sans-serif;
+  --font-body:     'DM Sans', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+}
+
+/* ── NOISE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+
+  &.is-loading {
+    overflow: hidden;
+  }
+}
+
+/* ── GRID BACKGROUND ── */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 201, 167, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 201, 167, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── CURSOR SPOTLIGHT ── */
+#cursor-spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    600px circle at -9999px -9999px,
+    rgba(0, 201, 167, 0.07) 0%,
+    rgba(0, 201, 167, 0.03) 30%,
+    transparent 70%
+  );
+  transition: background 0.05s linear;
+  mix-blend-mode: screen;
+}
+
+#cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  left: -100px;
+  top: -100px;
+  opacity: 0.85;
+  box-shadow: 0 0 10px 2px rgba(0, 201, 167, 0.5);
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+}
+
+body:has(a:hover) #cursor-dot,
+body:has(button:hover) #cursor-dot {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+}
+
+/* ── SECTIONS ── */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* ── SECTION HEADER (shared) ── */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--teal);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding: 0.3rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--teal-faint);
+  border-radius: 2rem;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+
+  .accent {
+    color: var(--teal);
+  }
+}
+
+.section-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ── SHARED BUTTONS ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 201, 167, 0.35);
+  }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid var(--border-light);
+  color: var(--text);
+  font-size: 0.88rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+  background: transparent;
+
+  &:hover {
+    border-color: var(--teal);
+    background: var(--teal-faint);
+  }
+}
+
+/* ── TAG PILL (shared) ── */
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2rem;
+  background: var(--teal-faint);
+  border: 1px solid var(--border);
+  color: var(--teal);
+  letter-spacing: 0.04em;
+}
+
+/* ── SCROLL REVEAL (shared) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── SHARED ANIMATIONS ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes orb-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes line-appear {
+  to { opacity: 1; }
+}
+
+@keyframes pl-meta-in {
+  to { opacity: 1; }
+}

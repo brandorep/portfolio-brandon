@@ -1,0 +1,49 @@
+<section id="projects">
+  <div class="container">
+
+    <div class="section-header reveal" appScrollReveal>
+      <div class="section-tag">Projects</div>
+      <h2 class="section-title">Selected <span class="accent">works</span></h2>
+      <p class="section-desc">Portfolio of recent client projects.</p>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.name; let projectIndex = $index) {
+        <div
+          class="project-card reveal"
+          [class.reveal-delay-1]="projectIndex === 0"
+          [class.reveal-delay-2]="projectIndex === 1"
+          [class.reveal-delay-3]="projectIndex === 2"
+          appScrollReveal
+        >
+          <div class="project-thumb">
+            <!-- Replace with <img> once you have actual screenshots -->
+            <div class="project-thumb-placeholder">{{ project.placeholderLabel }}</div>
+
+            <div class="project-overlay">
+              <div class="project-overlay-tags">
+                @for (tag of project.tags; track tag) {
+                  <span class="tag-pill">{{ tag }}</span>
+                }
+              </div>
+              <a [href]="project.link" class="project-overlay-link">
+                View site
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-name">{{ project.name }}</div>
+            <div class="project-type">{{ project.projectType }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

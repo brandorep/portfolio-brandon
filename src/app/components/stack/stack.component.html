@@ -1,0 +1,35 @@
+<section id="stack">
+  <div class="container">
+
+    <div class="section-header reveal" appScrollReveal>
+      <div class="section-tag">Tech Stack</div>
+      <h2 class="section-title">Technologies I <span class="accent">work with</span></h2>
+    </div>
+
+    <div
+      class="tech-orbit"
+      id="techOrbit"
+      (mouseenter)="onOrbitMouseEnter()"
+      (mouseleave)="onOrbitMouseLeave()"
+    >
+      <!-- Decorative orbit rings -->
+      <div class="orbit-ring orbit-ring-1"></div>
+      <div class="orbit-ring orbit-ring-2"></div>
+      <div class="orbit-ring orbit-ring-3"></div>
+
+      <!-- Center label -->
+      <div class="orbit-center">TECH<br>STACK</div>
+
+      <!-- Orbiting icons — positioned by the TS animation engine -->
+      @for (iconConfig of orbitIconConfigs; track iconConfig.label) {
+        <div class="orbit-icon" #orbitIcon>
+          {{ iconConfig.emoji }}
+          <span>{{ iconConfig.label }}</span>
+        </div>
+      }
+
+      <span class="orbit-pause-hint">⏸ hover to pause</span>
+    </div>
+
+  </div>
+</section>

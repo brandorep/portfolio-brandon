@@ -1,0 +1,218 @@
+.hacker-terminal {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2rem;
+  width: 380px;
+  z-index: 500;
+  perspective: 900px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(120%) rotateY(-35deg) rotateX(8deg);
+  transition:
+    opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateX(0) rotateY(-6deg) rotateX(3deg);
+    pointer-events: all;
+  }
+
+  &.is-minimized {
+    opacity: 0;
+    transform: translateX(110%) rotateY(-35deg);
+    pointer-events: none;
+  }
+
+  &.is-visible .hacker-terminal-inner {
+    animation: terminal-glow 4s ease-in-out infinite;
+  }
+
+  &:hover .hacker-terminal-inner {
+    transform: rotateY(4deg) rotateX(-2deg);
+    box-shadow:
+      0 0 0 1px rgba(0, 201, 167, 0.15),
+      0 40px 100px rgba(0, 0, 0, 0.8),
+      0 0 60px rgba(0, 201, 167, 0.12),
+      inset 0 1px 0 rgba(0, 201, 167, 0.2);
+  }
+}
+
+.hacker-terminal-inner {
+  position: relative;
+  background: rgba(4, 10, 9, 0.92);
+  border: 1px solid rgba(0, 201, 167, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 201, 167, 0.08),
+    0 30px 80px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(0, 201, 167, 0.08),
+    inset 0 1px 0 rgba(0, 201, 167, 0.15);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* CRT scanline overlay */
+.hacker-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 2px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+/* Title bar */
+.hacker-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  background: rgba(0, 201, 167, 0.05);
+  border-bottom: 1px solid rgba(0, 201, 167, 0.12);
+}
+
+.hacker-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.hacker-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &.dot-red    { background: #ff5f56; }
+  &.dot-yellow { background: #ffbd2e; }
+  &.dot-green  { background: #27c93f; }
+}
+
+.hacker-title {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(0, 201, 167, 0.6);
+  letter-spacing: 0.08em;
+}
+
+.hacker-close {
+  background: none;
+  border: none;
+  color: rgba(0, 201, 167, 0.4);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  transition: color 0.2s;
+  line-height: 1;
+
+  &:hover {
+    color: var(--teal);
+  }
+}
+
+/* Output body */
+.hacker-body {
+  padding: 0.9rem 1rem;
+  min-height: 200px;
+  max-height: 240px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.8;
+  color: #a0f0dc;
+}
+
+/* Per-line styles */
+.hacker-line {
+  display: block;
+  opacity: 0;
+  animation: line-appear 0.1s forwards;
+  white-space: pre;
+  overflow: hidden;
+
+  &.cmd  { color: #00C9A7; }
+  &.out  { color: rgba(160, 240, 220, 0.55); }
+  &.warn { color: #ffbd2e; }
+  &.ok   { color: #27c93f; }
+  &.err  { color: #ff5f56; }
+  &.dim  { color: rgba(160, 240, 220, 0.25); }
+}
+
+/* Blinking prompt row */
+.hacker-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem 0.8rem;
+  border-top: 1px solid rgba(0, 201, 167, 0.07);
+}
+
+.hacker-prompt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--teal);
+}
+
+.hacker-cursor-blink {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--teal);
+  animation: blink 0.9s step-end infinite;
+}
+
+/* Reopen slide-in tab */
+.hacker-reopen-tab {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 0;
+  z-index: 499;
+  writing-mode: vertical-rl;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  background: rgba(4, 10, 9, 0.92);
+  border: 1px solid rgba(0, 201, 167, 0.3);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  padding: 0.8rem 0.45rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.4s, transform 0.4s;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+
+  &:hover {
+    background: rgba(0, 201, 167, 0.08);
+  }
+}
+
+/* Glow pulse animation */
+@keyframes terminal-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(0, 201, 167, 0.08),
+      0 30px 80px rgba(0, 0, 0, 0.7),
+      0 0 40px rgba(0, 201, 167, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(0, 201, 167, 0.2),
+      0 30px 80px rgba(0, 0, 0, 0.7),
+      0 0 60px rgba(0, 201, 167, 0.18);
+  }
+}

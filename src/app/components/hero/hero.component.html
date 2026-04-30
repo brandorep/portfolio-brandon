@@ -1,0 +1,71 @@
+<section id="home">
+  <div class="hero-inner">
+
+    <!-- ── LEFT: Text content ── -->
+    <div class="hero-left">
+      <div class="hero-badge">Available for freelance work</div>
+
+      <h1 class="hero-name">
+        Brandon<br>
+        <span class="highlight">Campos</span>
+      </h1>
+
+      <p class="hero-title">
+        <span id="typed-role">{{ displayedRole }}</span>
+        <span class="cursor"></span>
+      </p>
+
+      <p class="hero-desc">
+        I transform complex ideas into elegant digital experiences.
+        Specializing in interactive web apps and UI/UX design that connects with users.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          View Projects
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Let's Talk
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        @for (stat of stats; track stat.label) {
+          <div class="hero-stat">
+            <div class="stat-val">{{ stat.value }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- ── RIGHT: Visual orb ── -->
+    <div class="hero-visual">
+      <div class="hero-orb"></div>
+
+      <div class="hero-tags">
+        @for (tag of floatingTags; track tag.label) {
+          <span class="hero-tag">{{ tag.label }}</span>
+        }
+      </div>
+
+      <!-- Photo placeholder — replace src with your actual photo -->
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>Your photo here</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

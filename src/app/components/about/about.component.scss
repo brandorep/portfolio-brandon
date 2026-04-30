@@ -1,0 +1,93 @@
+#about {
+  padding: 7rem 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+
+  .accent {
+    color: var(--teal);
+  }
+}
+
+.about-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+
+  strong {
+    color: var(--teal);
+    font-weight: 500;
+  }
+}
+
+.about-cv-btn {
+  margin-top: 1rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+  cursor: default;
+
+  &:hover {
+    border-color: var(--border);
+    background: var(--surface-hover);
+    transform: translateY(-2px);
+  }
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.skill-name {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.skill-tech {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

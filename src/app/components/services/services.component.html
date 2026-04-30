@@ -1,0 +1,30 @@
+<section id="services">
+  <div class="container">
+
+    <div class="section-header reveal" appScrollReveal>
+      <div class="section-tag">Services</div>
+      <h2 class="section-title">What I can <span class="accent">do for you</span></h2>
+      <p class="section-desc">Software development tailored to your business goals.</p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of services; track service.number; let serviceIndex = $index) {
+        <div
+          class="service-card reveal"
+          [class.reveal-delay-1]="serviceIndex === 0"
+          [class.reveal-delay-2]="serviceIndex === 1"
+          [class.reveal-delay-3]="serviceIndex === 2"
+          [class.reveal-delay-4]="serviceIndex === 3"
+          appScrollReveal
+        >
+          <div class="service-number">{{ service.number }}</div>
+          <div class="service-icon-wrap">{{ service.icon }}</div>
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-desc">{{ service.description }}</p>
+          <div class="service-arrow">→</div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

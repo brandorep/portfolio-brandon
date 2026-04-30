@@ -1,0 +1,15 @@
+<div id="marquee-section">
+  <p class="marquee-label">Clients &amp; Projects</p>
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      <!-- Set 1 -->
+      @for (clientName of clientNames; track clientName) {
+        <span class="marquee-item">{{ clientName }}</span>
+      }
+      <!-- Set 2 — duplicate for seamless loop -->
+      @for (clientName of clientNames; track clientName) {
+        <span class="marquee-item">{{ clientName }}</span>
+      }
+    </div>
+  </div>
+</div>

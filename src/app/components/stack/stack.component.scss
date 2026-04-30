@@ -1,0 +1,96 @@
+#stack {
+  padding: 7rem 0;
+  background: var(--bg2);
+}
+
+.tech-orbit {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+
+  &:hover .orbit-pause-hint {
+    opacity: 1;
+  }
+}
+
+.orbit-center {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--teal-glow);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal);
+  z-index: 5;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--border);
+  pointer-events: none;
+
+  &.orbit-ring-1 { width: 220px;  height: 220px;  }
+  &.orbit-ring-2 { width: 340px;  height: 340px;  }
+  &.orbit-ring-3 { width: 420px;  height: 420px;  }
+}
+
+/* Icons are positioned by the TS animation engine */
+.orbit-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  cursor: default;
+  will-change: transform;
+
+  &:hover {
+    border-color: var(--teal);
+    box-shadow: 0 0 16px rgba(0, 201, 167, 0.25);
+    z-index: 10;
+  }
+
+  span {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--text-dim);
+    position: absolute;
+    bottom: -18px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+  }
+}
+
+.orbit-pause-hint {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+}

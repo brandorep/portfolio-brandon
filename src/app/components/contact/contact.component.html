@@ -1,0 +1,102 @@
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- ── LEFT: Links ── -->
+      <div class="contact-left reveal" appScrollReveal>
+        <div class="section-tag">Contact</div>
+        <h2 class="contact-title">
+          Let's build something
+          <span class="accent">great</span>
+          together
+        </h2>
+        <p class="contact-desc">
+          Have a project in mind? I'm currently available for freelance work.
+          Drop me a message and let's talk.
+        </p>
+
+        <div class="contact-links">
+          @for (contactLink of contactLinks; track contactLink.label) {
+            <a
+              [href]="contactLink.href"
+              class="contact-link"
+              [target]="contactLink.isExternal ? '_blank' : null"
+              [rel]="contactLink.isExternal ? 'noopener noreferrer' : null"
+            >
+              <div class="contact-link-icon">{{ contactLink.icon }}</div>
+              <div>
+                <span class="contact-link-label">{{ contactLink.label }}</span>
+                <span class="contact-link-value">{{ contactLink.value }}</span>
+              </div>
+            </a>
+          }
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Form ── -->
+      <div class="contact-form reveal reveal-delay-2" appScrollReveal>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contactName">Your name</label>
+            <input
+              id="contactName"
+              type="text"
+              placeholder="John Doe"
+              [(ngModel)]="formData.name"
+              name="contactName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Your email</label>
+            <input
+              id="contactEmail"
+              type="email"
+              placeholder="john@email.com"
+              [(ngModel)]="formData.email"
+              name="contactEmail"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contactSubject">Subject</label>
+          <input
+            id="contactSubject"
+            type="text"
+            placeholder="Project inquiry"
+            [(ngModel)]="formData.subject"
+            name="contactSubject"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage">Your message</label>
+          <textarea
+            id="contactMessage"
+            placeholder="Tell me about your project..."
+            [(ngModel)]="formData.message"
+            name="contactMessage"
+          ></textarea>
+        </div>
+
+        <button
+          class="form-submit"
+          [class.is-sent]="isSubmitted$ | async"
+          (click)="onSubmit()"
+          [disabled]="isSubmitted$ | async"
+        >
+          @if (isSubmitted$ | async) {
+            ✓ Message sent!
+          } @else {
+            Send Message
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          }
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>

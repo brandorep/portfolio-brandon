@@ -1,0 +1,47 @@
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- ── LEFT: Bio ── -->
+      <div class="about-left reveal" appScrollReveal>
+        <div class="section-tag">About me</div>
+        <h2 class="about-title">
+          Passionate about building
+          <span class="accent">meaningful</span>
+          digital products
+        </h2>
+        <p class="about-text">
+          Hi, I'm Brandon — a <strong>Full Stack Developer &amp; UX/UI Designer</strong>
+          with a passion for creating seamless digital experiences. I bridge the gap between
+          design and development, delivering solutions that are both beautiful and functional.
+        </p>
+        <p class="about-text">
+          I work with <strong>Angular, React, Node.js, C#</strong> and modern design tools like
+          Figma to bring ideas to life. From MVP to enterprise, I build with scalability in mind.
+        </p>
+        <a href="#" class="btn-primary about-cv-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download CV
+        </a>
+      </div>
+
+      <!-- ── RIGHT: Skill cards ── -->
+      <div class="about-right reveal reveal-delay-2" appScrollReveal>
+        <div class="skills-grid">
+          @for (skillCard of skillCards; track skillCard.name) {
+            <div class="skill-card">
+              <span class="skill-icon">{{ skillCard.icon }}</span>
+              <div class="skill-name">{{ skillCard.name }}</div>
+              <div class="skill-tech">{{ skillCard.technologies }}</div>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

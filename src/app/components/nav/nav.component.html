@@ -1,0 +1,18 @@
+<nav>
+  <a href="#home" class="nav-logo">Brandon<span>.</span></a>
+
+  <ul class="nav-links">
+    @for (navLink of navLinks; track navLink.sectionId) {
+      <li>
+        <a
+          [href]="'#' + navLink.sectionId"
+          [class.is-active]="isLinkActive(navLink.sectionId)"
+        >
+          {{ navLink.label }}
+        </a>
+      </li>
+    }
+  </ul>
+
+  <a href="#contact" class="nav-cta">Hire me</a>
+</nav>

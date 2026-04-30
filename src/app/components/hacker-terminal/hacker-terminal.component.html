@@ -1,0 +1,57 @@
+<!-- ── FLOATING 3D TERMINAL PANEL ── -->
+<div
+  #terminalPanel
+  class="hacker-terminal"
+  [class.is-visible]="isVisible$ | async"
+  [class.is-minimized]="isMinimized$ | async"
+  (mousemove)="onTerminalMouseMove($event)"
+  (mouseleave)="onTerminalMouseLeave()"
+>
+  <div class="hacker-terminal-inner" #terminalInner>
+
+    <!-- CRT scanlines overlay -->
+    <div class="hacker-scanlines"></div>
+
+    <!-- Title bar -->
+    <div class="hacker-header">
+      <div class="hacker-dots">
+        <span class="hacker-dot dot-red"></span>
+        <span class="hacker-dot dot-yellow"></span>
+        <span class="hacker-dot dot-green"></span>
+      </div>
+      <span class="hacker-title">brandon&#64;dev:~</span>
+      <button
+        class="hacker-close"
+        title="minimize"
+        (click)="onCloseTerminal()"
+      >
+        ⌘
+      </button>
+    </div>
+
+    <!-- Output lines -->
+    <div class="hacker-body" #terminalBody>
+      @for (terminalLine of renderedLines; track $index) {
+        <span [class]="lineTypeClass(terminalLine.lineType)">
+          {{ terminalLine.text }}
+        </span>
+      }
+    </div>
+
+    <!-- Blinking prompt row -->
+    <div class="hacker-input-row">
+      <span class="hacker-prompt">❯</span>
+      <span class="hacker-cursor-blink">█</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Reopen tab — slides in from the right when minimized -->
+<button
+  class="hacker-reopen-tab"
+  [class.show]="showReopenTab$ | async"
+  (click)="onReopenTerminal()"
+>
+  ⌨ TERMINAL
+</button>
