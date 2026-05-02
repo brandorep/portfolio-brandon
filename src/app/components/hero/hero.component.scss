@@ -144,7 +144,7 @@
   position: relative;
   z-index: 2;
   width: 240px;
-  height: 280px;
+  height: 339px;
 
   &::before {
     content: '';
@@ -184,7 +184,7 @@
   }
 }
 
-/* ── FLOATING TECH TAGS ── */
+/* ── FLOATING TECH ICONS ── */
 .hero-tags {
   position: absolute;
   inset: 0;
@@ -194,31 +194,31 @@
 
 .hero-tag {
   position: absolute;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  padding: 0.45rem 0.85rem;
-  border-radius: 3rem;
-  border: 1px solid var(--border);
-  background: rgba(var(--bg2-rgb, 20, 25, 35), 0.85);
-  backdrop-filter: blur(8px);
-  color: var(--teal);
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 201, 167, 0.28);
+  background: rgba(10, 14, 24, 0.86);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 201, 167, 0.12);
   animation: float 6s ease-in-out infinite;
-  box-shadow: 0 4px 12px rgba(0, 201, 167, 0.1);
-  pointer-events: auto;
-  cursor: default;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 
-  &:hover {
-    background: rgba(var(--bg2-rgb, 20, 25, 35), 0.95);
-    box-shadow: 0 6px 16px rgba(0, 201, 167, 0.2);
+  img {
+    width: 58%;
+    height: 58%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(0, 201, 167, 0.15));
   }
 
-  &:nth-child(1) { top: 5%;    left: -15%;  animation-delay: 0s;   }
-  &:nth-child(2) { top: 20%;   right: -10%; animation-delay: 1s;   }
-  &:nth-child(3) { bottom: 12%; left: -8%;  animation-delay: 2s;   }
-  &:nth-child(4) { bottom: 10%; right: -12%; animation-delay: 0.5s; }
-  &:nth-child(5) { top: 40%;   left: -5%;  animation-delay: 1.5s; }
+  &:hover {
+    transform: translateY(-2px) scale(1.04);
+    border-color: rgba(0, 201, 167, 0.55);
+    box-shadow: 0 10px 24px rgba(0, 201, 167, 0.22);
+  }
 }
 
 @media (max-width: 900px) {

@@ -17,8 +17,12 @@
           appScrollReveal
         >
           <div class="project-thumb">
-            <!-- Replace with <img> once you have actual screenshots -->
-            <div class="project-thumb-placeholder">{{ project.placeholderLabel }}</div>
+            <img
+              [src]="project.imageSrc"
+              [alt]="project.name"
+              loading="lazy"
+              decoding="async"
+            />
 
             <div class="project-overlay">
               <div class="project-overlay-tags">

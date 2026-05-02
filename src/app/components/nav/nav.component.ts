@@ -72,4 +72,11 @@ export class NavComponent implements OnInit, OnDestroy {
   protected isLinkActive(sectionId: string): boolean {
     return this.activeSectionId$.getValue() === sectionId;
   }
+
+  protected scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

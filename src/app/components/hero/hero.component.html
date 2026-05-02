@@ -51,7 +51,23 @@
 
       <div class="hero-tags">
         @for (tag of floatingTags; track tag.label) {
-          <span class="hero-tag">{{ tag.label }}</span>
+          <div
+            class="hero-tag"
+            [style.top]="tag.top"
+            [style.left]="tag.left || null"
+            [style.right]="tag.right || null"
+            [style.width]="tag.size || '60px'"
+            [style.height]="tag.size || '60px'"
+            [style.animation-delay]="tag.delay || '0s'"
+            [attr.aria-label]="tag.label"
+          >
+            <img
+              [src]="tag.iconSrc"
+              [alt]="tag.label"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         }
       </div>
 

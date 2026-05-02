@@ -22,8 +22,8 @@
   --text:          #e8f4f1;
   --text-muted:    rgba(232, 244, 241, 0.5);
   --text-dim:      rgba(232, 244, 241, 0.25);
-  --font-head:     'Syne', sans-serif;
-  --font-body:     'DM Sans', sans-serif;
+  --font-head:     'Space Grotesk', sans-serif;
+  --font-body:     'Inter', sans-serif;
   --font-mono:     'JetBrains Mono', monospace;
 }
 
@@ -45,6 +45,10 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &.is-loading {
     overflow: hidden;
@@ -199,13 +203,23 @@ section {
 /* ── TAG PILL (shared) ── */
 .tag-pill {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 2rem;
-  background: var(--teal-faint);
-  border: 1px solid var(--border);
-  color: var(--teal);
-  letter-spacing: 0.04em;
+  font-size: 0.65rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 3rem;
+  background: rgba(0, 201, 167, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 201, 167, 0.4);
+  color: #00ffd9;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  box-shadow: 0 0 12px rgba(0, 201, 167, 0.12);
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(0, 201, 167, 0.25);
+    border-color: rgba(0, 201, 167, 0.6);
+    box-shadow: 0 0 16px rgba(0, 201, 167, 0.25);
+  }
 }
 
 /* ── SCROLL REVEAL (shared) ── */

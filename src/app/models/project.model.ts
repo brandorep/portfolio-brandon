@@ -4,4 +4,5 @@ export interface ProjectModel {
   tags: string[];
   link: string;
   placeholderLabel: string;
+  imageSrc: string;
 }

@@ -20,13 +20,15 @@ export class ProjectsComponent {
       tags: ['WordPress', 'SEO'],
       link: '#',
       placeholderLabel: 'Glim Solar',
+      imageSrc: 'assets/images/glimsolar.png',
     },
     {
-      name: 'DecoClub Store',
+      name: 'Artesano Bed',
       projectType: 'E-Commerce · Home Decor',
       tags: ['E-Commerce', 'UX/UI'],
       link: '#',
-      placeholderLabel: 'DecoClub Store',
+      placeholderLabel: 'Artesano Bed',
+      imageSrc: 'assets/images/artesanobed.png',
     },
     {
       name: 'Glim Roofing',
@@ -34,6 +36,7 @@ export class ProjectsComponent {
       tags: ['WordPress', 'Design'],
       link: '#',
       placeholderLabel: 'Glim Roofing',
+      imageSrc: 'assets/images/glimroofing.png',
     },
   ];
 }

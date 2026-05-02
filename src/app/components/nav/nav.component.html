@@ -1,5 +1,9 @@
 <nav>
-  <a href="#home" class="nav-logo">Brandon<span>.</span></a>
+  <a 
+    href="#home" 
+    class="nav-logo"
+    (click)="$event.preventDefault(); scrollToSection('home')"
+  >Brandon<span>.</span></a>
 
   <ul class="nav-links">
     @for (navLink of navLinks; track navLink.sectionId) {
@@ -7,6 +11,7 @@
         <a
           [href]="'#' + navLink.sectionId"
           [class.is-active]="isLinkActive(navLink.sectionId)"
+          (click)="$event.preventDefault(); scrollToSection(navLink.sectionId)"
         >
           {{ navLink.label }}
         </a>
@@ -14,5 +19,9 @@
     }
   </ul>
 
-  <a href="#contact" class="nav-cta">Hire me</a>
+  <a 
+    href="#contact" 
+    class="nav-cta"
+    (click)="$event.preventDefault(); scrollToSection('contact')"
+  >Hire me</a>
 </nav>
