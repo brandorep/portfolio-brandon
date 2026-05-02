@@ -189,25 +189,36 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 10;
 }
 
 .hero-tag {
   position: absolute;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  padding: 0.3rem 0.7rem;
+  padding: 0.45rem 0.85rem;
   border-radius: 3rem;
   border: 1px solid var(--border);
-  background: var(--bg2);
+  background: rgba(var(--bg2-rgb, 20, 25, 35), 0.85);
+  backdrop-filter: blur(8px);
   color: var(--teal);
   white-space: nowrap;
   animation: float 6s ease-in-out infinite;
+  box-shadow: 0 4px 12px rgba(0, 201, 167, 0.1);
+  pointer-events: auto;
+  cursor: default;
+  transition: all 0.3s ease;
 
-  &:nth-child(1) { top: 10%;   left: 0%;  animation-delay: 0s;   }
-  &:nth-child(2) { top: 25%;   right: 0%; animation-delay: 1s;   }
-  &:nth-child(3) { bottom: 30%; left: 2%; animation-delay: 2s;   }
-  &:nth-child(4) { bottom: 15%; right: 5%; animation-delay: 0.5s; }
-  &:nth-child(5) { top: 60%;   left: 5%;  animation-delay: 1.5s; }
+  &:hover {
+    background: rgba(var(--bg2-rgb, 20, 25, 35), 0.95);
+    box-shadow: 0 6px 16px rgba(0, 201, 167, 0.2);
+  }
+
+  &:nth-child(1) { top: 5%;    left: -15%;  animation-delay: 0s;   }
+  &:nth-child(2) { top: 20%;   right: -10%; animation-delay: 1s;   }
+  &:nth-child(3) { bottom: 12%; left: -8%;  animation-delay: 2s;   }
+  &:nth-child(4) { bottom: 10%; right: -12%; animation-delay: 0.5s; }
+  &:nth-child(5) { top: 40%;   left: -5%;  animation-delay: 1.5s; }
 }
 
 @media (max-width: 900px) {

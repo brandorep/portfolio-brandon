@@ -1,9 +1,9 @@
 export interface OrbitIconConfig {
-  emoji: string;
   label: string;
   orbitRadius: number;
   speed: number;
   offsetDegrees: number;
+  iconSrc: string;
 }
 
 export interface OrbitIconState extends OrbitIconConfig {

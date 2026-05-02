@@ -23,7 +23,13 @@
       <!-- Orbiting icons — positioned by the TS animation engine -->
       @for (iconConfig of orbitIconConfigs; track iconConfig.label) {
         <div class="orbit-icon" #orbitIcon>
-          {{ iconConfig.emoji }}
+          <img
+            class="orbit-icon-image"
+            [src]="iconConfig.iconSrc"
+            [alt]="iconConfig.label"
+            loading="lazy"
+            decoding="async"
+          />
           <span>{{ iconConfig.label }}</span>
         </div>
       }

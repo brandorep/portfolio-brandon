@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import { OrbitIconConfig, OrbitIconState } from '../../models/orbit-icon.model';
 
-/** Half of the icon element size in px (48px ÷ 2) — used for centering offset */
-const ICON_HALF_SIZE_PX = 24;
+/** Half of the icon element size in px (56px ÷ 2) — used for centering offset */
+const ICON_HALF_SIZE_PX = 28;
 
 /**
  * StackComponent
@@ -35,21 +35,21 @@ export class StackComponent implements AfterViewInit, OnDestroy {
 
   protected readonly orbitIconConfigs: OrbitIconConfig[] = [
     // Ring 1 — radius 110px, speed 0.4
-    { emoji: '🅰️', label: 'Angular',    orbitRadius: 110, speed: 0.4,  offsetDegrees: 0   },
-    { emoji: '⚛️', label: 'React',      orbitRadius: 110, speed: 0.4,  offsetDegrees: 90  },
-    { emoji: '🟩', label: 'Node.js',    orbitRadius: 110, speed: 0.4,  offsetDegrees: 180 },
-    { emoji: '🎨', label: 'Figma',      orbitRadius: 110, speed: 0.4,  offsetDegrees: 270 },
+    { label: 'Angular',      iconSrc: 'assets/images/angular-icon 2.png',     orbitRadius: 110, speed: 0.4,  offsetDegrees: 0   },
+    { label: 'React',        iconSrc: 'assets/images/react 2.png',            orbitRadius: 110, speed: 0.4,  offsetDegrees: 90  },
+    { label: 'Node.js',      iconSrc: 'assets/images/nodejs-icon 2.png',      orbitRadius: 110, speed: 0.4,  offsetDegrees: 180 },
+    { label: 'Figma',        iconSrc: 'assets/images/figma 4.png',            orbitRadius: 110, speed: 0.4,  offsetDegrees: 270 },
     // Ring 2 — radius 170px, speed 0.25
-    { emoji: '🔷', label: 'TypeScript', orbitRadius: 170, speed: 0.25, offsetDegrees: 30  },
-    { emoji: '🟨', label: 'JavaScript', orbitRadius: 170, speed: 0.25, offsetDegrees: 90  },
-    { emoji: '🐘', label: 'PostgreSQL', orbitRadius: 170, speed: 0.25, offsetDegrees: 150 },
-    { emoji: '🍃', label: 'MongoDB',    orbitRadius: 170, speed: 0.25, offsetDegrees: 210 },
-    { emoji: '🌿', label: 'Vue.js',     orbitRadius: 170, speed: 0.25, offsetDegrees: 270 },
-    { emoji: '🐋', label: 'Docker',     orbitRadius: 170, speed: 0.25, offsetDegrees: 330 },
+    { label: 'JavaScript',   iconSrc: 'assets/images/javascript 2.png',       orbitRadius: 170, speed: 0.25, offsetDegrees: 30  },
+    { label: 'MongoDB',      iconSrc: 'assets/images/mongodb-icon 2.png',     orbitRadius: 170, speed: 0.25, offsetDegrees: 90  },
+    { label: 'PostgreSQL',   iconSrc: 'assets/images/postgresql 2.png',       orbitRadius: 170, speed: 0.25, offsetDegrees: 150 },
+    { label: 'PHP',          iconSrc: 'assets/images/php 2.png',              orbitRadius: 170, speed: 0.25, offsetDegrees: 210 },
+    { label: 'WordPress',    iconSrc: 'assets/images/wordpress-icon 2.png',    orbitRadius: 170, speed: 0.25, offsetDegrees: 270 },
+    { label: 'MySQL',        iconSrc: 'assets/images/mysql-icon 2.png',        orbitRadius: 170, speed: 0.25, offsetDegrees: 330 },
     // Ring 3 — radius 210px, speed 0.15
-    { emoji: '🔷', label: 'C#',         orbitRadius: 210, speed: 0.15, offsetDegrees: 15  },
-    { emoji: '🐘', label: 'PHP',        orbitRadius: 210, speed: 0.15, offsetDegrees: 135 },
-    { emoji: '🌐', label: 'WordPress',  orbitRadius: 210, speed: 0.15, offsetDegrees: 255 },
+    { label: 'Tailwind CSS', iconSrc: 'assets/images/tailwindcss-icon 2.png',  orbitRadius: 210, speed: 0.15, offsetDegrees: 15  },
+    { label: 'Sass',         iconSrc: 'assets/images/sass 2.png',              orbitRadius: 210, speed: 0.15, offsetDegrees: 135 },
+    { label: 'GitHub',       iconSrc: 'assets/images/github-icon 2.png',      orbitRadius: 210, speed: 0.15, offsetDegrees: 255 },
   ];
 
   private orbitIconStates: OrbitIconState[] = [];
